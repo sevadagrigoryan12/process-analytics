@@ -1,0 +1,29 @@
+version: '3.6'
+
+services:
+  ms:
+    build:
+     context: .
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./src:/usr/app/src
+    logging:
+      options:
+        tag: "main_instance"
+  db:
+    image: mariadb
+    ports:
+      - '${MYSQL_PORT}:3306'
+    command: --max_allowed_packet=999M
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - TZ=${MYSQL_TZ}
+    expose:
+      - ${MYSQL_PORT}
