@@ -17,5 +17,15 @@ export default {
   },
   port: env.PORT || 3000,
   baseApiUrl: env.BASE_API_URL,
-  flightsApiUrl: env.FLIGHTS_API_URL,
+  database: {
+    host: env.MSSQL_HOST,
+    port: env.MSSQL_PORT,
+    database: env.MSSQL_DATABASE,
+    user: env.MSSQL_USER,
+    password: env.MSSQL_PASSWORD,
+    charset: env.MSSQL_CHARSET,
+    collate: env.MSSQL_COLLATE,
+    timezone: env.MSSQL_TZ,
+    logging: env.MSSQL_LOGGING ? console.log : false, // eslint-disable-line no-console
+  },
 };

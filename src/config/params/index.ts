@@ -1,5 +1,5 @@
 import Joi from '@hapi/joi';
-import { EVENT_TYPES, ALLOWED_VIDEO_TYPES } from 'config/common/constants';
+import { EVENT_TYPES, ALLOWED_VIDEO_TYPES } from 'common/constants';
 
 export default {
   processEvents: {
